@@ -104,16 +104,16 @@ export default class App extends Component {
                 <Top/>
 
                 <List todo={todo} count={count}
-                      deleteTodo={this.deleteTodo.bind(this)}
-                      finishedTodo={this.finishedTodo.bind(this)}/>
+                      deleteTodo={this.deleteTodo}
+                      finishedTodo={this.finishedTodo}/>
 
-                <Add  addTodo={this.addTodo.bind(this)}
-                      handleDisplay ={ this.handleDisplay.bind(this)}/>
+                <Add  addTodo={this.addTodo}
+                      handleDisplay ={ this.handleDisplay}/>
 
                 <All todo={todo}
                      show = {this.show.bind(this)}
-                     showFinished={this.showFinished.bind(this)}
-                     showActiveTodo={this.showActiveTodo.bind(this)}/>
+                     showFinished={this.showFinished}
+                     showActiveTodo={this.showActiveTodo}/>
 
 
             </div>
