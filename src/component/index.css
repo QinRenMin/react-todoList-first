@@ -1,0 +1,155 @@
+.mainDiv{
+    border: 1px solid greenyellow;
+    width: 1000px;
+    height: 800px;
+    position: absolute;
+   margin-left: 200px;
+}
+
+.topDiv{
+    border: 1px solid papayawhip;
+    width: 800px;
+    height: 100px;
+    margin-left: 100px;
+
+}
+.title{
+    display: inline-block;
+    text-align: center;
+    font-size: 40px;
+    margin-left: 300px;
+    margin-top: 20px;
+    color: cornflowerblue;
+}
+/*.searchDiv{*/
+    /*border: 1px solid peachpuff;*/
+    /*width: 800px;*/
+    /*height: 100px;*/
+    /*margin-left: 100px;*/
+    /*margin-top: 30px;*/
+/*}*/
+
+
+
+.inputDiv{
+    display: inline-block;
+    width: 600px;
+}
+.Input{
+    display: inline-block;
+    width: 420px;
+    height: 60px;
+    margin-left:160px;
+    margin-top: 14px;
+    font-size: 20px;
+}
+.List{
+    display: inline-block;
+    margin-left: 150px;
+}
+.List li{
+         list-style-type: none; /*先去掉黑点*/
+    }
+.List .show {
+    display: inline-block;
+   padding: 10px 120px;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 1px solid gray;
+    width:400px;
+    border-radius:2%;
+    height: 40px;
+    font-size: 30px;
+    color: white;
+    background-color: lightskyblue;
+    text-decoration: none;
+}
+
+.List input{
+    display: inline-block;
+    margin-right: 30px;
+    margin-left: -80px;
+    width: 20px;
+    height: 20px;
+}
+.List a{
+    padding: 8px 10px;
+    float: right;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.total{
+    background-color: slategrey;
+    font-size: 20px;
+    display: inline-block;
+    padding: 2px 120px 2px 20px;
+    border: 1px solid gray;
+    width:500px;
+    color: yellowgreen;
+    border-radius:2%;
+
+}
+.addDiv{
+    display: inline-block;
+    width: 800px;
+
+    margin-left: 150px;
+}
+.add span{
+    display: inline-block;
+    font-size: 25px;
+    margin-left: 20px;
+    color: white;
+    width: 140px;
+    background-color: lightskyblue;
+   margin-top: 4px;
+    padding:0 12px 6px 12px;
+    text-align: center;
+
+}
+.add input{
+    display: inline-block;
+    width: 400px;
+    margin-left: 30px;
+    height: 40px;
+    margin-top: 13px;
+    background-color: lavender;
+    border-radius: 3%;
+    font-size: 20px;
+    border: 1px solid cornflowerblue;
+}
+.add button{
+    width:80px;
+    height: 40px;
+    margin-left: 20px;
+    background-color: yellowgreen;
+}
+.a_save{
+    text-decoration: none;
+}
+#bottom{
+    width: 800px;
+    margin-left: 150px;
+    height: 200px;
+
+}
+.showAll{
+
+    display: inline-block;
+}
+.allButton,.finishedButton,.activeButton,.clearButton{
+    display: inline-block;
+}
+.all,.finish,.active,.clear{
+    display: inline-block;
+    margin-left: 30px;
+    margin-right: 20px;
+    width: 120px;
+    height: 40px;
+    background-color: lightgreen;
+    margin-top: 20px;
+    font-size: 25px;
+    color: white;
+}
+
