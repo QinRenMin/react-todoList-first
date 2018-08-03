@@ -6,12 +6,40 @@ export default class All extends Component {
         super(props);
     }
     showAll =() =>{
-         alert('zz');
-        this.props.show();
+        const {todo,displayFlag} = this.props;
+        todo.map((x,index) =>{
+                document.getElementById(index).style.display = 'inline-block';
+        });
+        document.getElementById(displayFlag).style.display ='inline-block';
     };
     hasFinished =()=>{
+        const {todo,displayFlag} = this.props;
+        todo.map((x,index) =>{
+            if(x.status === 0){
+                document.getElementById(index).style.display = 'inline-block';
+            }
+            else {
+                document.getElementById(index).style.display = 'none';
+            }
+        });
+         document.getElementById(displayFlag).style.display ='none';
+    };
+    activeTodo =() =>{
+        const {todo,displayFlag} = this.props;
+        todo.map((x,index) =>{
+            if(x.status === 1){
+                document.getElementById(index).style.display = 'inline-block';
+            }
+            else {
+                document.getElementById(index).style.display = 'none';
+            }
 
-        this.props.showFinished();
+        });
+        document.getElementById(displayFlag).style.display ='none';
+    };
+
+    clearTodo = () =>{
+       this.props.handleClear()
     };
 
     render() {
@@ -32,12 +60,12 @@ export default class All extends Component {
                         </button>
                     </div>
                     <div className='activeButton'>
-                        <button className='active'>
+                        <button className='active' type='button' onClick={() =>this.activeTodo()} >
                             Active
                         </button>
                     </div>
                     <div className='clearButton'>
-                        <button className='clear'>
+                        <button className='clear' type='button' onClick={() => this.clearTodo()}>
                             Clear
                         </button>
                     </div>

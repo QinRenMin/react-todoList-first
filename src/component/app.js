@@ -27,7 +27,7 @@ export default class App extends Component {
                 }
             ],
             count: 0,
-            displayFlag:'none',
+            displayFlag:'addDiv',
                   };
 
     }
@@ -65,40 +65,27 @@ export default class App extends Component {
             todo[index].status = 1;
             temp--;
         }
-        // todo.map((x) => {
-        //   alert('finished'+x.name + '  '+x.status);
-        //
-        // });
         count = temp;
 
         this.setState({count});
         this.setState({todo});
 
     };
-    handleDisplay(){}
-    show =() =>{
-        const  {todo} = this.state;
-        alert('show');
-        this.setState({todo});
+    handleClear =() =>{
+      let {count} = this.state;
+      let {todo} = this.state;
+      const {displayFlag} = this.state;
+      count = 0;
+      todo = [];
+      this.setState({count});
+      this.setState({todo});
+      document.getElementById(displayFlag).style.display ='inline-block';
     };
-    showFinished =()=>{
-        let {todo} = this.state;
-        for(let i = 0; i< todo.length;i++){
-            if(todo[i].status === 1){
-                todo.splice(i,1);
-                i--;
-            }
-        }
-        this.setState({todo});
 
-    };
-    showActiveTodo(){
-
-    }
     render() {
         const {todo} = this.state;
         const {count} = this.state;
-
+        const {displayFlag} = this.state;
         return (
             <div className='mainDiv'>
                 <Top/>
@@ -107,42 +94,14 @@ export default class App extends Component {
                       deleteTodo={this.deleteTodo}
                       finishedTodo={this.finishedTodo}/>
 
-                <Add  addTodo={this.addTodo}
-                      handleDisplay ={ this.handleDisplay}/>
+                <Add  addTodo={this.addTodo} displayFlag ={displayFlag}/>
 
-                <All todo={todo}
-                     show = {this.show.bind(this)}
-                     showFinished={this.showFinished}
-                     showActiveTodo={this.showActiveTodo}/>
-
-
+                <All todo={todo} count={count }
+                     displayFlag ={displayFlag}
+                     handleClear = {this.handleClear}/>
             </div>
         )
     }
 }
-
-
-// class Search extends Component{
-//     constructor(props){
-//         super(props)
-//     }
-//
-//     render(){
-//         return(
-//             <div className='searchDiv'>
-//                 <div className='imageDiv'>
-//
-//                 </div>
-//                 <div className='inputDiv'>
-//                     <input type="text" className ='Input' placeholder={"What needs to be done?"}/>
-//
-//                 </div>
-//             </div>
-//         )
-//     }
-// }
-
-
-
 
 

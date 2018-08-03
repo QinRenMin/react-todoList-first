@@ -37,7 +37,7 @@ export  default class List extends Component {
     render() {
         const {todo} = this.props;
         const {count} = this.props;
-        // const {copyTodo} = this.props;
+
         let flag = 0;
         return (
             <div className='ListDiv'>

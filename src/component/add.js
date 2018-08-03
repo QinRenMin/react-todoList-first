@@ -22,16 +22,11 @@ export  default class Add extends Component {
         //4.清除输入
         this.input.value = '';
     };
-    handleChange =()=>{
-        let  d = document.getElementsByClassName('addDiv');
-        if(d.display === 'inline-block'){
-            d.display = 'none';
-        }
-        else d.display ='inline-block';
-    };
+
     render() {
+        const {displayFlag} = this.props;
         return (
-            <div className="addDiv" onChange={this.handleChange.bind(this)}>
+            <div id={displayFlag}  >
                 <div className="add">
                     <span>添加任务:</span>
                     <input type="text" placeholder={"搞事情！ 搞事情！搞事情！"} ref={(input) => this.input = input}/>
