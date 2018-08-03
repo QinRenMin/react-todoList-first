@@ -5,11 +5,10 @@ export  default class Add extends Component {
 
     constructor(props) {
         super(props);
-        this.add = this.add.bind(this);
     }
 
 
-    add() {
+    add =() => {
 
         //1.读取输入的数据
         const tdo = this.input.value.trim();
@@ -23,13 +22,13 @@ export  default class Add extends Component {
         //4.清除输入
         this.input.value = '';
     };
-    handleChange(){
+    handleChange =()=>{
         let  d = document.getElementsByClassName('addDiv');
         if(d.display === 'inline-block'){
             d.display = 'none';
         }
         else d.display ='inline-block';
-    }
+    };
     render() {
         return (
             <div className="addDiv" onChange={this.handleChange.bind(this)}>

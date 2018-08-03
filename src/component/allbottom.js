@@ -4,19 +4,15 @@ import React from "react";
 export default class All extends Component {
     constructor(props){
         super(props);
-
-        this.showAll = this.showAll.bind(this);
-        this.hasFinished = this.hasFinished.bind(this);
     }
-    showAll(){
+    showAll =() =>{
          alert('zz');
         this.props.show();
-    }
-    hasFinished(){
+    };
+    hasFinished =()=>{
 
         this.props.showFinished();
-    }
-
+    };
 
     render() {
 

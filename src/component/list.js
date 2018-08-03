@@ -4,11 +4,6 @@ import React from "react";
 export  default class List extends Component {
     constructor(props) {
         super(props);
-
-        this.change = this.change.bind(this);
-        this.over = this.over.bind(this);
-        this.delete = this.delete.bind(this);
-        this.finished = this.finished.bind(this);
     }
     change = (index) => {
 

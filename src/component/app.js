@@ -29,11 +29,10 @@ export default class App extends Component {
             count: 0,
             displayFlag:'none',
                   };
-        this.addTodo = this.addTodo.bind(this);
-        this.show = this.show.bind(this);
+
     }
 
-    addTodo(tdo) {
+    addTodo =(tdo) => {
          let {todo} = this.state;
 
         todo.push({name: tdo, status: 1});
@@ -41,7 +40,7 @@ export default class App extends Component {
         this.setState(todo);
     };
 
-    deleteTodo(x) {
+    deleteTodo =(x) => {
         const {todo} = this.state;
         let index = todo.indexOf(x);
         if (index > -1&&x.status === 1) {
@@ -51,9 +50,9 @@ export default class App extends Component {
             alert('无法删除已完成事项');
         }
         this.setState(todo);
-    }
+    };
 
-    finishedTodo(x, flag) {
+    finishedTodo =(x, flag)=> {
         let {todo} = this.state;
         let {count} = this.state;
         let temp = count;
@@ -75,14 +74,14 @@ export default class App extends Component {
         this.setState({count});
         this.setState({todo});
 
-    }
+    };
     handleDisplay(){}
-    show() {
+    show =() =>{
         const  {todo} = this.state;
         alert('show');
         this.setState({todo});
-    }
-    showFinished(){
+    };
+    showFinished =()=>{
         let {todo} = this.state;
         for(let i = 0; i< todo.length;i++){
             if(todo[i].status === 1){
@@ -92,7 +91,7 @@ export default class App extends Component {
         }
         this.setState({todo});
 
-    }
+    };
     showActiveTodo(){
 
     }
