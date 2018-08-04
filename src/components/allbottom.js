@@ -23,9 +23,10 @@ export default class All extends Component {
             }
         });
          document.getElementById(displayFlag).style.display ='none';
+
     };
     activeTodo =() =>{
-        const {todo,displayFlag} = this.props;
+        const {todo,displayFlag,textFlag} = this.props;
         todo.map((x,index) =>{
             if(x.status === 1){
                 document.getElementById(index).style.display = 'inline-block';
@@ -37,7 +38,11 @@ export default class All extends Component {
         });
         document.getElementById(displayFlag).style.display ='none';
     };
+    clearAllFinishedTodo =() =>{
+        // const {textFlag} = this.props;
+      this.props.handleFinished();
 
+    };
     clearTodo = () =>{
        this.props.handleClear()
     };
@@ -55,18 +60,22 @@ export default class All extends Component {
                     </div>
                     <div className='finishedButton'>
                         <button className='finish' type='button' onClick={()=>this.hasFinished()}>
-
                             Finish
                         </button>
                     </div>
                     <div className='activeButton'>
-                        <button className='active' type='button' onClick={() =>this.activeTodo()} >
+                        <button className='active' type='button'    onClick={() =>this.activeTodo()} >
                             Active
                         </button>
                     </div>
                     <div className='clearButton'>
-                        <button className='clear' type='button' onClick={() => this.clearTodo()}>
+                        <button className='clear' type='button' onClick={() => this.clearAllFinishedTodo()}>
                             Clear
+                        </button>
+                    </div>
+                     <div className='clearButton'>
+                        <button className='clear' type='button' onClick={() => this.clearTodo()}>
+                            ClearAll
                         </button>
                     </div>
 

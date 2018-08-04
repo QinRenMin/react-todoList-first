@@ -14,8 +14,11 @@ export  default class List extends Component {
     };
 
     delete = (x) => {
+        //提示
+        if(window.confirm('确认删除 '+(x.name)+' 任务嘛')){
+            this.props.deleteTodo(x);
+        }
 
-        this.props.deleteTodo(x);
     };
     finished = (x, index) => {
         let input = document.getElementsByClassName(index)[0];
@@ -33,7 +36,6 @@ export  default class List extends Component {
         this.props.finishedTodo(x, input.name);
     };
 
-
     render() {
         const {todo} = this.props;
         const {count} = this.props;
@@ -41,16 +43,16 @@ export  default class List extends Component {
         let flag = 0;
         return (
             <div className='ListDiv'>
-                <ul className='List'>
+                <ul className='List' >
                     {
                         todo.map((x, index) => {
                             return <li className='show' key={index} id={index} onMouseOver={() => this.change(index)}
                                        onMouseOut={() => this.over(index)}>
 
-                                <span className='Span'>
+                                <span className='Span' >
                                     <input type="checkbox" className={index} name={flag} onClick={() => this.finished(x, index)}/>
-                                    {x.name}
-                                    <a href="#" className='a_save' onClick={()=> this.delete(x)}> 删除</a>
+                                    <span contentEditable='true' id='edit' >{x.name}</span>
+                                    <a href="#" className='a_save' onClick={()=> this.delete(x,index)}> 删除</a>
                                 </span>
                             </li>
                         })

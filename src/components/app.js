@@ -28,7 +28,8 @@ export default class App extends Component {
             ],
             count: 0,
             displayFlag:'addDiv',
-                  };
+            textFlag: 'show'
+        };
 
     }
 
@@ -52,6 +53,7 @@ export default class App extends Component {
         this.setState(todo);
     };
 
+
     finishedTodo =(x, flag)=> {
         let {todo} = this.state;
         let {count} = this.state;
@@ -71,6 +73,7 @@ export default class App extends Component {
         this.setState({todo});
 
     };
+    //删除所有
     handleClear =() =>{
       let {count} = this.state;
       let {todo} = this.state;
@@ -81,24 +84,42 @@ export default class App extends Component {
       this.setState({todo});
       document.getElementById(displayFlag).style.display ='inline-block';
     };
+    //删除已完成
+    handleFinished =() =>{
+        let {todo,textFlag,count} = this.state;
+        count = todo.length;
+        const {displayFlag} = this.state;
+
+        todo = todo.filter((x) => x.status === 1);
+        count = count-todo.length ;
+        this.setState({count});
+        this.setState({todo});
+        document.getElementById(displayFlag).style.display ='inline-block';
+        document.getElementsByClassName(textFlag).textDection = 'none'
+    };
 
     render() {
         const {todo} = this.state;
         const {count} = this.state;
-        const {displayFlag} = this.state;
+        const {displayFlag,textFlag} = this.state;
         return (
             <div className='mainDiv'>
                 <Top/>
 
                 <List todo={todo} count={count}
                       deleteTodo={this.deleteTodo}
-                      finishedTodo={this.finishedTodo}/>
+                      finishedTodo={this.finishedTodo}
+
+                />
 
                 <Add  addTodo={this.addTodo} displayFlag ={displayFlag}/>
 
                 <All todo={todo} count={count }
                      displayFlag ={displayFlag}
-                     handleClear = {this.handleClear}/>
+                     textFlag = {textFlag}
+                     handleClear = {this.handleClear}
+                     handleFinished = {this.handleFinished}
+                />
             </div>
         )
     }
